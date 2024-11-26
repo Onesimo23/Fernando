@@ -3,37 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Código de Autenticação</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Código de Verificação</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .email-container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: #4A90E2;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .content {
+            padding: 30px 20px;
+            color: #4a4a4a;
+            text-align: center;
+        }
+
+        .content p {
+            font-size: 1rem;
+            margin: 10px 0;
+        }
+
+        .verification-code {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #4A90E2;
+            background-color: #f0f7ff;
+            padding: 15px 0;
+            margin: 20px 0;
+            border-radius: 8px;
+            letter-spacing: 0.1rem;
+        }
+
+        .footer {
+            background-color: #f4f4f9;
+            color: #9b9b9b;
+            padding: 15px 20px;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #4A90E2;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
-    <div class="bg-white w-full max-w-md mx-auto p-8 rounded-2xl shadow-2xl text-center">
-        <div class="mb-6">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 text-blue-500 mx-auto mb-4">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75m6.633-4.596a18.666 18.666 0 01-2.485 5.33" />
-            </svg>
-            <h1 class="text-3xl font-bold text-gray-800">Código de Verificação</h1>
-        </div>
-        
-        <p class="text-gray-600 mb-6">Para completar seu login, use o código abaixo:</p>
-        
-        <div class="bg-blue-50 border-2 border-blue-200 rounded-lg p-4 mb-6">
-            <h2 class="text-4xl font-bold text-blue-600 tracking-widest">{{ $code }}</h2>
-        </div>
-        
-        <div class="text-sm text-gray-500">
-            <p>Este código é válido por <strong>10 minutos</strong>.</p>
-            <p class="mt-2">Se você não solicitou este código, ignore este e-mail.</p>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Seu Código de Verificação</h1>
         </div>
 
-        <div class="mt-6 text-xs text-gray-400">
+        <!-- Content -->
+        <div class="content">
+            <p>Para concluir seu login, insira o código abaixo no sistema:</p>
+            <div class="verification-code">{{ $code }}</div>
+            <p>O código é válido por <strong>10 minutos</strong>.</p>
+            <p>Se você não solicitou este código, ignore este e-mail.</p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
             <p>© {{ date('Y') }} {{ config('app.name') }}. Todos os direitos reservados.</p>
+            <p>
+                <a href="{{ config('app.url') }}">Visite nosso site</a>
+            </p>
         </div>
     </div>
 </body>

@@ -1,4 +1,4 @@
-1- Testes unitários com Pest
-2- Transações em Aplicações Laravel ( DB::beginTransaction(), DB::commit() e DB::rollback())
-3- Autenticação em dois factores (email via mailtrap)
-4- SSO via github
+1- Logs de acesso e ações do usuário  
+2- Filas e Jobs em Background
+3- Single Sign On (SSO) Laravel(github)
+4- Autenticação de dois factores (email)

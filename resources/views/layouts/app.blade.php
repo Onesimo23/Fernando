@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Dashboard')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    
+
     <style>
         :root {
             --primary-color: #0d6efd;
@@ -97,6 +98,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Main Content -->
     <main class="main-content">
@@ -124,35 +126,26 @@
         <a href="/dashboard" class="menu-item">
             <i class="bi bi-house-door"></i> Dashboard
         </a>
-        <a href="/users" class="menu-item">
-            <i class="bi bi-people"></i> Users
-        </a>
-        <a href="/products" class="menu-item">
-            <i class="bi bi-box"></i> Products
-        </a>
+
         <a href="/logs" class="menu-item">
             <i class="bi bi-file-earmark-text"></i> Logs
         </a>
-        <a href="/movies" class="menu-item">
-            <i class="bi bi-film"></i> Movies
-        </a>
-        <a href="/reports" class="menu-item">
-            <i class="bi bi-graph-up"></i> Reports
-        </a>
+
         <a href="/settings" class="menu-item">
             <i class="bi bi-gear"></i> Settings
         </a>
-        
+
         <hr>
         <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <button type="submit" class="user-menu-item w-100 text-start border-0 bg-transparent">
-                        <i class="bi bi-box-arrow-right"></i>
-                        Logout
-                    </button>
-                </form>
+            @csrf
+            <button type="submit" class="user-menu-item w-100 text-start border-0 bg-transparent">
+                <i class="bi bi-box-arrow-right"></i>
+                Logout
+            </button>
+        </form>
     </nav>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
