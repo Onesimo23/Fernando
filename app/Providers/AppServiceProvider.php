@@ -8,6 +8,8 @@ use App\Models\Product;
 use App\Observers\UserObserver;
 use App\Observers\ProductObserver;
 use Illuminate\Support\Facades\Blade;
+use App\Observers\CandidateObserver;
+use App\Models\Candidate;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -26,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot()
     {
+        Candidate::observe(CandidateObserver::class);
         Blade::component('layouts.app', 'layouts.app');
 
     }

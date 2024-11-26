@@ -127,8 +127,11 @@
             <i class="bi bi-house-door"></i> Dashboard
         </a>
 
-        <a href="/logs" class="menu-item">
-            <i class="bi bi-file-earmark-text"></i> Logs
+        <a href="/logs/candidates" class="menu-item">
+            <i class="bi bi-file-earmark-text"></i> Logs de Candidato
+        </a>
+        <a href="/candidates" class="menu-item">
+            <i class="bi bi-file-earmark-text"></i> Candidatos
         </a>
 
         <a href="/settings" class="menu-item">

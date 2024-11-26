@@ -10,7 +10,12 @@ use App\Http\Controllers\MovieController;
 use App\Http\Controllers\Auth\GithubController;
 use App\Http\Controllers\CandidateController;
 use App\Models\UserLog;
+use App\Http\Controllers\LogController;
 
+
+Route::get('/logs/candidates', [LogController::class, 'index'])->name('logs.candidates');
+
+Route::resource('candidates', CandidateController::class);
 Route::get('/logs', function () {
     return view('logs.index', [
         'logs' => UserLog::with('user')->latest()->paginate(10),

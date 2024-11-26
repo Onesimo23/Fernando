@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Candidate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Jobs\ProcessNewCandidateJob;
 
 class CandidateController extends Controller
 {
@@ -27,13 +28,16 @@ class CandidateController extends Controller
         DB::beginTransaction();
 
         try {
-            Candidate::create([
+            $candidate = Candidate::create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'cell1' => $request->cell1,
                 'document_number' => $request->document_number,
                 'password' => bcrypt($request->password),
             ]);
+
+            // Disparar o job
+            ProcessNewCandidateJob::dispatch($candidate);
 
             DB::commit();
             return redirect()->route('candidates.index')->with('success', 'Candidato criado com sucesso!');
